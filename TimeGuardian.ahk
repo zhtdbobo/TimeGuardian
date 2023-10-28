@@ -1,4 +1,4 @@
-﻿full_command_line := DllCall("GetCommandLine", "str")
+full_command_line := DllCall("GetCommandLine", "str")
 
 if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)"))
 {
@@ -42,7 +42,7 @@ videourl := FileSelect("", , "请选择休息时播放的视频文件")
 workTime := ""
 restTime := ""
 Saved := ""
-status := 1
+status := 0
 drag := 0
 time := ""
 daojishi := ""
@@ -57,7 +57,7 @@ ProcessUserInput(*)
 
     Saved := Main.Submit()
     workTime := Saved.WorkTimeUpDown * 60
-    restTime := Saved.RestTimeUpDown * 6
+    restTime := Saved.RestTimeUpDown * 60
     Main.Destroy()
     while(true){
         if(status == 1)
